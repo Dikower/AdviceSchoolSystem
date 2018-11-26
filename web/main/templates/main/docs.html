@@ -1,0 +1,782 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<head>
+    <style>
+        .slideUp {
+            animation-name: slideUp;
+            -webkit-animation-name: slideUp;
+
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+
+            animation-timing-function: ease;
+            -webkit-animation-timing-function: ease;
+
+            visibility: visible !important;
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+
+        @-webkit-keyframes slideUp {
+            0% {
+                -webkit-transform: translateY(100%);
+            }
+            100% {
+                -webkit-transform: translateY(0%);
+            }
+        }
+
+        .windows8 {
+            position: relative;
+            width: 56px;
+            height: 56px;
+            margin: auto;
+        }
+
+        .windows8 .wBall {
+            position: absolute;
+            width: 53px;
+            height: 53px;
+            opacity: 0;
+            transform: rotate(225deg);
+            -o-transform: rotate(225deg);
+            -ms-transform: rotate(225deg);
+            -webkit-transform: rotate(225deg);
+            -moz-transform: rotate(225deg);
+            animation: orbit 6.050000000000001s infinite;
+            -o-animation: orbit 6.050000000000001s infinite;
+            -ms-animation: orbit 6.050000000000001s infinite;
+            -webkit-animation: orbit 6.050000000000001s infinite;
+            -moz-animation: orbit 6.050000000000001s infinite;
+        }
+
+        .windows8 .wBall .wInnerBall {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            background: rgb(0, 0, 0);
+            left: 0px;
+            top: 0px;
+            border-radius: 7px;
+        }
+
+        .windows8 #wBall_1 {
+            animation-delay: 1.32s;
+            -o-animation-delay: 1.32s;
+            -ms-animation-delay: 1.32s;
+            -webkit-animation-delay: 1.32s;
+            -moz-animation-delay: 1.32s;
+        }
+
+        .windows8 #wBall_2 {
+            animation-delay: 0.26s;
+            -o-animation-delay: 0.26s;
+            -ms-animation-delay: 0.26s;
+            -webkit-animation-delay: 0.26s;
+            -moz-animation-delay: 0.26s;
+        }
+
+        .windows8 #wBall_3 {
+            animation-delay: 0.53s;
+            -o-animation-delay: 0.53s;
+            -ms-animation-delay: 0.53s;
+            -webkit-animation-delay: 0.53s;
+            -moz-animation-delay: 0.53s;
+        }
+
+        .windows8 #wBall_4 {
+            animation-delay: 0.79s;
+            -o-animation-delay: 0.79s;
+            -ms-animation-delay: 0.79s;
+            -webkit-animation-delay: 0.79s;
+            -moz-animation-delay: 0.79s;
+        }
+
+        .windows8 #wBall_5 {
+            animation-delay: 1.06s;
+            -o-animation-delay: 1.06s;
+            -ms-animation-delay: 1.06s;
+            -webkit-animation-delay: 1.06s;
+            -moz-animation-delay: 1.06s;
+        }
+
+        @keyframes orbit {
+            0% {
+                opacity: 1;
+                z-index: 99;
+                transform: rotate(180deg);
+                animation-timing-function: ease-out;
+            }
+
+            7% {
+                opacity: 1;
+                transform: rotate(300deg);
+                animation-timing-function: linear;
+                origin: 0%;
+            }
+
+            30% {
+                opacity: 1;
+                transform: rotate(410deg);
+                animation-timing-function: ease-in-out;
+                origin: 7%;
+            }
+
+            39% {
+                opacity: 1;
+                transform: rotate(645deg);
+                animation-timing-function: linear;
+                origin: 30%;
+            }
+
+            70% {
+                opacity: 1;
+                transform: rotate(770deg);
+                animation-timing-function: ease-out;
+                origin: 39%;
+            }
+
+            75% {
+                opacity: 1;
+                transform: rotate(900deg);
+                animation-timing-function: ease-out;
+                origin: 70%;
+            }
+
+            76% {
+                opacity: 0;
+                transform: rotate(900deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: rotate(900deg);
+            }
+        }
+
+        @-o-keyframes orbit {
+            0% {
+                opacity: 1;
+                z-index: 99;
+                -o-transform: rotate(180deg);
+                -o-animation-timing-function: ease-out;
+            }
+
+            7% {
+                opacity: 1;
+                -o-transform: rotate(300deg);
+                -o-animation-timing-function: linear;
+                -o-origin: 0%;
+            }
+
+            30% {
+                opacity: 1;
+                -o-transform: rotate(410deg);
+                -o-animation-timing-function: ease-in-out;
+                -o-origin: 7%;
+            }
+
+            39% {
+                opacity: 1;
+                -o-transform: rotate(645deg);
+                -o-animation-timing-function: linear;
+                -o-origin: 30%;
+            }
+
+            70% {
+                opacity: 1;
+                -o-transform: rotate(770deg);
+                -o-animation-timing-function: ease-out;
+                -o-origin: 39%;
+            }
+
+            75% {
+                opacity: 1;
+                -o-transform: rotate(900deg);
+                -o-animation-timing-function: ease-out;
+                -o-origin: 70%;
+            }
+
+            76% {
+                opacity: 0;
+                -o-transform: rotate(900deg);
+            }
+
+            100% {
+                opacity: 0;
+                -o-transform: rotate(900deg);
+            }
+        }
+
+        @-ms-keyframes orbit {
+            0% {
+                opacity: 1;
+                z-index: 99;
+                -ms-transform: rotate(180deg);
+                -ms-animation-timing-function: ease-out;
+            }
+
+            7% {
+                opacity: 1;
+                -ms-transform: rotate(300deg);
+                -ms-animation-timing-function: linear;
+                -ms-origin: 0%;
+            }
+
+            30% {
+                opacity: 1;
+                -ms-transform: rotate(410deg);
+                -ms-animation-timing-function: ease-in-out;
+                -ms-origin: 7%;
+            }
+
+            39% {
+                opacity: 1;
+                -ms-transform: rotate(645deg);
+                -ms-animation-timing-function: linear;
+                -ms-origin: 30%;
+            }
+
+            70% {
+                opacity: 1;
+                -ms-transform: rotate(770deg);
+                -ms-animation-timing-function: ease-out;
+                -ms-origin: 39%;
+            }
+
+            75% {
+                opacity: 1;
+                -ms-transform: rotate(900deg);
+                -ms-animation-timing-function: ease-out;
+                -ms-origin: 70%;
+            }
+
+            76% {
+                opacity: 0;
+                -ms-transform: rotate(900deg);
+            }
+
+            100% {
+                opacity: 0;
+                -ms-transform: rotate(900deg);
+            }
+        }
+
+        @-webkit-keyframes orbit {
+            0% {
+                opacity: 1;
+                z-index: 99;
+                -webkit-transform: rotate(180deg);
+                -webkit-animation-timing-function: ease-out;
+            }
+
+            7% {
+                opacity: 1;
+                -webkit-transform: rotate(300deg);
+                -webkit-animation-timing-function: linear;
+                -webkit-origin: 0%;
+            }
+
+            30% {
+                opacity: 1;
+                -webkit-transform: rotate(410deg);
+                -webkit-animation-timing-function: ease-in-out;
+                -webkit-origin: 7%;
+            }
+
+            39% {
+                opacity: 1;
+                -webkit-transform: rotate(645deg);
+                -webkit-animation-timing-function: linear;
+                -webkit-origin: 30%;
+            }
+
+            70% {
+                opacity: 1;
+                -webkit-transform: rotate(770deg);
+                -webkit-animation-timing-function: ease-out;
+                -webkit-origin: 39%;
+            }
+
+            75% {
+                opacity: 1;
+                -webkit-transform: rotate(900deg);
+                -webkit-animation-timing-function: ease-out;
+                -webkit-origin: 70%;
+            }
+
+            76% {
+                opacity: 0;
+                -webkit-transform: rotate(900deg);
+            }
+
+            100% {
+                opacity: 0;
+                -webkit-transform: rotate(900deg);
+            }
+        }
+
+        @-moz-keyframes orbit {
+            0% {
+                opacity: 1;
+                z-index: 99;
+                -moz-transform: rotate(180deg);
+                -moz-animation-timing-function: ease-out;
+            }
+
+            7% {
+                opacity: 1;
+                -moz-transform: rotate(300deg);
+                -moz-animation-timing-function: linear;
+                -moz-origin: 0%;
+            }
+
+            30% {
+                opacity: 1;
+                -moz-transform: rotate(410deg);
+                -moz-animation-timing-function: ease-in-out;
+                -moz-origin: 7%;
+            }
+
+            39% {
+                opacity: 1;
+                -moz-transform: rotate(645deg);
+                -moz-animation-timing-function: linear;
+                -moz-origin: 30%;
+            }
+
+            70% {
+                opacity: 1;
+                -moz-transform: rotate(770deg);
+                -moz-animation-timing-function: ease-out;
+                -moz-origin: 39%;
+            }
+
+            75% {
+                opacity: 1;
+                -moz-transform: rotate(900deg);
+                -moz-animation-timing-function: ease-out;
+                -moz-origin: 70%;
+            }
+
+            76% {
+                opacity: 0;
+                -moz-transform: rotate(900deg);
+            }
+
+            100% {
+                opacity: 0;
+                -moz-transform: rotate(900deg);
+            }
+        }
+    </style>
+
+    <title>Документы | Advice School System</title>
+</head>
+{% endblock %}
+
+{% block content %}
+
+<a name="main"></a>
+<div class="py-5"
+     style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9),
+     rgba(100, 200, 190, 0.1), rgba(0, 0, 0, 0.9)),
+     url({% static 'main/docs-bg.jpg' %});
+     background-position: right bottom; background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="p-5 bg-white mx-auto col-md-5 border">
+                <h1>Документы</h1>
+                <p class="mb-3">Список документов готовых для использования. Любой ученик или учитель может
+                    воспользоваться этой образовательной мини библиотекой&nbsp;<br></p>
+            </div>
+        </div>
+    </div>
+</div>
+<a name="choose"></a>
+<div class="py-5 text-center" id="choose_div" style="display: none">
+    <div class="container">
+        <div class="row">
+            <div class="pb-5 col-md-12">
+                <h1>Рекомендации</h1>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs ">
+                    <li class="nav-item">
+                        <a href="" class="active nav-link" data-toggle="tab"
+                           onclick="materials.level = this.innerHTML;" data-target="#ООО">Общеее образование</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-toggle="tab"
+                           onclick="materials.level = this.innerHTML;" data-target="#НОО">Начальное образование</a></li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link" data-toggle="tab"
+                           onclick="materials.level = this.innerHTML;" data-target="#СОО">Специальное образование</a>
+                    </li>
+                </ul>
+                <div class="tab-content mt-2">
+                    <div class="tab-pane fade show active" id="ООО" role="tabpanel">
+                        <div class="py-2 col-md-12">
+                            <div><label for="subject:ООО">Предмет</label></div>
+                            <select id="subject:ООО"></select>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade " id="СОО" role="tabpanel">
+                        <div class="py-2 col-md-12" id="subject_div:СОО">
+                            <div><label for="subject:СОО">Предмет</label></div>
+                            <select id="subject:СОО"></select>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="НОО" role="tabpanel">
+                        <div class="py-2 col-md-12" id="subject_div:НОО">
+                            <div><label for="subject:НОО">Предмет</label></div>
+                            <select id="subject:НОО"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a name="loading"></a>
+<div class="py-5 text-center" id="loading_div" style="display: none">
+    <div class="container">
+        <div class="windows8">
+            <div class="wBall" id="wBall_1">
+                <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_2">
+                <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_3">
+                <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_4">
+                <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_5">
+                <div class="wInnerBall"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<a name="error"></a>
+<div class="text-center" id="error_div"></div>
+<a name="materials"></a>
+<div class="py-5 slideUp" id="materials_div" style="display: none;
+     background-image: linear-gradient(to bottom, rgba(31, 145, 200, 0.3), rgba(31, 145, 200, 0.2));
+     background-position: center center, center center;
+     background-size: cover, cover; background-repeat: repeat, repeat;">
+    <div class="container" style="margin-bottom: 50px">
+        <div class="mx-auto col-lg-8" style="text-align: center">
+            <a id="sort_by_date" class="btn btn-outline-dark" href="#materials"
+               style="margin: 5px">Сортировать по дате</a>
+            <a id="sort_by_name" class="btn btn-outline-dark" href="#materials"
+               style="margin: 5px">Сортировать по названию</a>
+            <a id="sort_by_score" class="btn btn-outline-dark" href="#materials"
+               style="margin: 5px">Сортировать по релевантности</a>
+        </div>
+    </div>
+    <div class="container" id="docs">
+    </div>
+</div>
+
+<script>
+    class Materials {
+        constructor() {
+            this.data = {};
+            this.level = 'Общеее образование';
+            this.subjects_data = {};
+            this.docs = document.getElementById('docs');
+
+            this.month = {
+                1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель',
+                5: 'Май', 6: 'Июнь', 7: 'Июль', 8: 'Август',
+                9: 'Сентябрь', 10: 'Октябрь', 11: 'Ноябрь', 12: 'Декабрь'
+            };
+            this.reverse_levels = {
+                "Общеее образование": "ООО",
+                "Специальное образование": "СОО",
+                "Начальное образование": "НОО"
+            }
+
+        }
+
+        sort_by_score() {
+            var html = '';
+            for (var i in this.data) {
+                html += this.format_material(this.data[i]);
+            }
+            this.docs.innerHTML = html;
+        }
+
+        sort_by_date() {
+            var sorted = [];
+            var html = '';
+
+            for (var i in this.data) {
+                sorted[sorted.length] = [
+                    this.data[i][4], this.data[i][3],
+                    this.data[i][2], this.data[i][1],
+                    this.data[i][0]
+                ];
+            }
+            sorted.sort().reverse();
+
+            for (var i in sorted) {
+                var item = sorted[i].reverse();
+                html += this.format_material(item);
+            }
+
+            this.docs.innerHTML = html;
+        }
+
+        sort_by_name() {
+            var sorted = [];
+            var html = '';
+
+            for (var i in this.data) {
+                sorted[sorted.length] = this.data[i];
+            }
+            sorted.sort();
+
+
+            for (var i in sorted) {
+                html += this.format_material(sorted[i]);
+            }
+
+            this.docs.innerHTML = html;
+        }
+
+        format_date(y, m, d) {
+            return d + ' ' + this.month[m] + ' ' + y;
+        }
+
+        format_material(item) {
+            return '<div class="row">\n' +
+                '            <div class="mx-auto col-lg-8 text-dark">\n' +
+                '                <div class="card" style="margin-bottom: 20px">\n' +
+                '                    <div class="card-body py-2 px-5">\n' +
+                '                        <div class="row">\n' +
+                '                            <div class="blockquote text-dark">\n' +
+                '                                <p class="mb-0">' + item[0] + '</p>\n' +
+                '                                <div class="blockquote-footer">' +
+                '' + this.format_date(item[2], item[3], item[4]) +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                    </div>\n' +
+                '                </div>\n' +
+                '            </div>\n' +
+                '        </div>'
+        }
+
+        set_data(data) {
+            this.data = data;
+            this.sort_by_score();
+
+            if (materials_div.style.display) {
+                materials_div.style.display = '';
+                if (materials_div.offsetHeight >= screen.height) {
+                    window.scrollTo(0, materials_div.offsetTop);
+                }
+            }
+        }
+
+        set_choose(data) {
+            this.subjects_data = data;
+            for (var level in this.subjects_data) {
+                var sub_html = '';
+                for (var value in this.subjects_data[level]) {
+                    sub_html += '<option>' + this.subjects_data[level][value] + '</option>';
+                }
+                document.getElementById('subject:' + level).innerHTML = sub_html;
+            }
+        }
+
+        init() {
+            var self = this;
+
+            document.getElementById('sort_by_date').onclick = function (e) {
+                self.sort_by_date();
+            };
+
+            document.getElementById('sort_by_name').onclick = function (e) {
+                self.sort_by_name();
+            };
+
+            document.getElementById('sort_by_score').onclick = function (e) {
+                self.sort_by_score();
+            };
+
+            document.getElementById('subject:ООО').onchange = function (e) {
+                api.get_advice();
+            };
+
+            document.getElementById('subject:СОО').onchange = function (e) {
+                api.get_advice();
+            };
+
+            document.getElementById('subject:НОО').onchange = function (e) {
+                api.get_advice();
+            };
+        }
+    }
+
+    class API {
+        constructor() {
+            this.xhr = null;
+        }
+
+        load_post_data() {
+            var url = '/api/docs/load_post_data/';
+
+            this.xhr = new XMLHttpRequest();
+            this.xhr.onreadystatechange = this.load_post_result;
+            this.xhr.withCredentials = true;
+
+            this.xhr.open("GET", url, true);
+            this.xhr.send();
+
+            choose_div.style.display = 'none';
+            loading_div.style.display = '';
+            error_div.innerHTML = '';
+            materials_div.style.display = 'none';
+            loading_div.style.margin = '5%';
+        }
+
+        load_post_result() {
+            /* Function in XMLHttpRequest */
+            if (this.readyState === 4) {
+                loading_div.style.display = 'none';
+                if (this.status === 200) {
+                    error_div.innerHTML = '';
+                    choose_div.style.display = '';
+                    choose_div.style.height = '';
+                    loading_div.style.margin = '';
+                    materials.set_choose(JSON.parse(this.responseText));
+                }
+            }
+        }
+
+        get_advice() {
+            var url = "../api/docs/get_advice";
+            var level = materials.reverse_levels[materials.level];
+
+            var subject = document.getElementById('subject:' + level + '-styler');
+            subject = subject.getElementsByClassName('jq-selectbox__select-text')[0].innerText;
+
+            this.xhr = new XMLHttpRequest();
+            this.xhr.onreadystatechange = this.advice_result;
+            this.xhr.withCredentials = true;
+            this.xhr.timeout = 1000000;
+
+            var params = {
+                'subject': subject,
+                'level': level,
+                'n': 10,
+                'user_id': 444531
+            };
+
+            var data = [];
+            for (var key in params) {
+                data.push(key + '=' + encodeURIComponent(params[key]));
+            }
+            this.xhr.open("GET", url + '/?' + data.join('&'), true);
+            this.xhr.send();
+
+            loading_div.style.display = '';
+            error_div.innerHTML = '';
+            materials_div.style.display = 'none';
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        advice_result() {
+            /* Function in XMLHttpRequest */
+            if (this.readyState === 4) {
+                loading_div.style.display = 'none';
+                if (this.status === 200) {
+                    error_div.innerHTML = '';
+                    materials.set_data(JSON.parse(this.responseText));
+                } else {
+                    error_div.innerHTML = '<div class="container">\n' +
+                        '        <div class="row">\n' +
+                        '            <div class="col-md-12">\n' +
+                        '                <div class="alert alert-danger" role="alert">\n' +
+                        '                    <button type="button" class="close" data-dismiss="alert">×</button>\n' +
+                        '                    <h4 class="alert-heading">Ошибка</h4>\n' +
+                        '                    <p class="mb-0">Произошла ошибка при получении данных</p>\n' +
+                        '                </div>\n' +
+                        '            </div>\n' +
+                        '        </div>\n' +
+                        '    </div>';
+                }
+            }
+        }
+    }
+
+    var choose_div = document.getElementById('choose_div');
+    var loading_div = document.getElementById('loading_div');
+    var materials_div = document.getElementById('materials_div');
+    var error_div = document.getElementById('error_div');
+
+    const materials = new Materials();
+    const api = new API();
+
+    materials.init();
+
+    loading_div.style.display = 'none';
+
+    error_div.innerHTML = '';
+    choose_div.style.display = '';
+    choose_div.style.height = '';
+    loading_div.style.margin = '';
+    materials.set_choose({
+        'ООО': ['Биология', 'Французский язык', 'Информатика', 'Основы безопасности жизнедеятельности',
+            'Английский язык', 'Русский язык', 'История', 'Изобразительное искусство', 'Литература',
+            'Геометрия', 'Алгебра', 'Химия', 'География', 'Технология', 'Всеобщая история',
+            'История России', 'Музыка', 'Испанский язык', 'Немецкий язык', 'Мир историй',
+            'Китайский язык',
+            'История Отечества', 'Физика', 'Природоведение', 'Чтение (Литературное чтение)',
+            'Основы социальной жизни'],
+        'НОО': ['Русский язык', 'Основы православной культуры', 'Математика', 'Основы буддийской культуры',
+            'Основы иудейской культуры', 'Основы мировых религиозных культур',
+            'Основы исламской культуры',
+            'Основы светской этики', 'Французский язык', 'Английский язык', 'Окружающий мир',
+            'Литературное чтение', 'Музыка', 'Испанский язык', 'Немецкий язык', 'Физическая культура',
+            'Технология', 'Окружающий мир (Человек, природа, общество)', 'Обучение грамоте',
+            'Ознакомление с окружающим миром', 'Мир природы и человека', 'Чтение',
+            'Чтение (Литературное чтение)'],
+        'СОО': ['Всеобщая история', 'Английский язык', 'Обществознание', 'География', 'Физика', 'Экология',
+            'Французский язык', 'История России', 'Испанский язык', 'Русский язык', 'Геометрия',
+            'Алгебра',
+            'Немецкий язык', 'Право', 'Экономика', 'Естествознание', 'Физическая культура', 'Химия',
+            'Литература', 'Информатика', 'История', 'Алгебра и начала математического анализа',
+            'Математика', 'Администрирование сетей', 'Литературное чтение']
+    });
+
+    (function ($) {
+        $(function () {
+            $('select').styler();
+        });
+    })(jQuery);
+
+</script>
+
+<style>
+    html {
+        scroll-behavior: smooth
+    }
+</style>
+
+{% endblock %}

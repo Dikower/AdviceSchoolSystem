@@ -1,0 +1,130 @@
+<html>
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    {% block head %}
+    <title>О нас | Advice School System</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<div class="py-5" style="">
+    <div class="container">
+        <div class="row">
+            <div class="px-5 col-md-8 text-center mx-auto" style="">
+                <h3 class="my-3"><b>Advice School System</b> облегчает поиск образовательной информации как для
+                    учителей, так и для учеников</h3>
+                <a href="../login/" class="btn btn-secondary">Начало работы</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, .7)),
+     url({% static 'main/about_wall.jpg' %});
+     background-position: center center, center center;	background-size: cover, cover;
+     background-repeat: repeat, repeat;" class="text-light">
+    <div class="py-5 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="mb-3">Всегда под рукой</h1>
+                    <p class="lead">
+                        Почитать нужные материалы в удобное время и делиться документами с вашими коллегами<br>
+                        Возможность узнавать важную информацию в нужное время<br>
+                        Все это доступно в <b>Advice School System</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="px-lg-5 d-flex flex-column justify-content-center col-lg-6">
+                    <h1>Удобная инфографика</h1>
+                    <p class="mb-3 lead">Вы можете воспользоваться интерактивными средствами для просмотра
+                        вашей статистики по используемым материалам</p>
+                </div>
+                <div class="col-lg-6"><img class="img-fluid d-block" src="../static/main/plot.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="mx-auto col-lg-6 col-md-8">
+                    <ul>
+                        <li class="mb-2"><b>Точность</b> - Высокая точность рекомендации помогает найти актуальные
+                            материалы
+                        </li>
+                        <li class="mb-2"><b>Скорость</b> - Наша рекомендательная система устроена особым образом
+                            специально для того, чтобы экономить ваше время
+                        </li>
+                        <li class="mb-2"><b>Актуальность</b> - В ваших рекомендациях находятся материалы подобранные
+                            особыми методами
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-md-12">
+                <h1 class="mb-3">Над проектом работали</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="{% static 'main/user1.png' %}" width="150"
+                                                 alt="Card image cap">
+                <h4><b>Михайлов Станислав</b></h4>
+                <p class="mb-0">Data analyst</p>
+            </div>
+            <div class="col-lg-2 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="{% static 'main/user2.png' %}" width="150"
+                                                 alt="Card image cap">
+                <h4><b>Дин Дмитрий</b></h4>
+                <p class="mb-0">Team lead</p>
+            </div>
+            <div class="col-lg-2 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="{% static 'main/user3.png' %}" width="150">
+                <h4><b>Степанов Руслан</b></h4>
+                <p class="mb-0">Full-stack dev</p>
+            </div>
+            <div class="col-lg-2 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="{% static 'main/user4.png' %}" width="150">
+                <h4><b>Зборошенко Дмитрий</b></h4>
+                <p class="mb-0">Ментор</p>
+            </div>
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="{% static 'main/user5.png' %}" width="150"
+                                                 alt="Card image cap">
+                <h4><b>Иванов Всеволод</b></h4>
+                <p class="mb-0">Data analyst</p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="{% static 'main/user6.png' %}" width="150">
+                <h4><b>Тармаев Александр</b></h4>
+                <p class="mb-0">Data analyst</p>
+            </div>
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="{% static 'main/user7.png' %}" width="150">
+                <h4><b>Кабиров Радмир</b></h4>
+                <p class="mb-0">Data analyst</p>
+            </div>
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="{% static 'main/user8.png' %}" width="150">
+                <h4><b>Родионов Павел</b></h4>
+                <p class="mb-0">Data analyst</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

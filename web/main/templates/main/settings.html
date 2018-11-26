@@ -1,0 +1,52 @@
+<html>
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    {% block head %}
+    <title>Настройки | Advice School System</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<div class="py-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-lg-6">
+                <h1>Настройки</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pb-5" style="min-height: 65%">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto p-4 col-md-6 text-center">
+                <h2 class="mb-4">Профиль</h2>
+                <p class="mb-0 lead">Статус: {{ status }}</p>
+                <p class="mb-0 lead">E-mail: <a href="mailto:{{ email }}">{{ email }}</a></p>
+            </div>
+            <div class="mx-auto p-4 col-md-4">
+                <h2 class="mb-3 text-center">Изменение пароля</h2>
+                <form id="change" class="w-100" method="POST" action="../change_password/">
+                    <div class="form-group"><label>Придумайте новый пароль</label>
+                        <input type="password" class="form-control" name="password_new" id="password_new"
+                               placeholder="Пароль">
+                    </div>
+                    <input type="hidden" name="status" id="status" value="teacher">
+                    {% csrf_token %}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary m-4">Изменить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto p-4 col-md-6 text-center">
+                <div class="text-center">
+                    <a class="btn btn-outline-dark" href="../choose_person/">Изменить тестового пользователя</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+<html>
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    {% block head %}
+    <title>Авторизация | Advice School System</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<div style="background-image: linear-gradient(to top, rgba(123, 45, 214, 0.2), rgba(53, 200, 203, 0.1));
+    background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+    <div class="py-5 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Авторизация</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-2">
+        <div class="container">
+            <div class="row">
+                <div class="bg-white p-5 mx-auto col-md-8 border"
+                     style="background-image: linear-gradient(to top, rgba(123, 45, 214, 0.05), rgba(53, 200, 203, 0.05));
+                     background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+                    <form method="POST">
+                        <div class="form-group"><label>Имя пользователя</label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                   placeholder="Username">
+                        </div>
+                        <div class="form-group"><label>Пароль</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                   placeholder="Пароль">
+                        </div>
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary m-4 px-3">Войти</button>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        <a class="btn btn-outline-dark" href="../recover_password/">Забыли пароль?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <h5 class="">Не зарегестрированы?</h5>
+                </div>
+                <div class="col-md-6 text-center ">
+                    <a class="btn btn-outline-secondary" href="../reg/">Регистрация</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,96 @@
+<html>
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    {% block head %}
+    <title>Регистрация | Advice School System</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<div style="background-image: linear-gradient(to top, rgba(123, 45, 214, 0.2), rgba(53, 200, 203, 0.1));
+background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+    <div class="pt-5 pb-3 text-center" style="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Регистрация</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-2">
+        <div class="container">
+            <div class="row">
+                <div class="bg-white px-5 pt-5 mx-auto col-md-8 border"
+                     style="background-image: linear-gradient(to top, rgba(123, 45, 214, 0.05), rgba(53, 200, 203, 0.05));
+                     background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+                    <div class="py-1">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        <h4 class="alert-heading">{{ title }}</h4>
+                                        <p class="mb-0">{{ message }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="reg" class="w-100" method="POST">
+                        <div class="form-group"><label>Имя пользователя</label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                   placeholder="Username" value="{{ username }}">
+                        </div>
+                        <div class="form-group"><label>Придумайте пароль</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                   placeholder="Пароль">
+                        </div>
+                        <div class="form-group"><label>Повторите пароль</label>
+                            <input type="password" class="form-control" name="password_again" id="password_again"
+                                   placeholder="Пароль">
+                        </div>
+                        <div class="form-group"><label>E-mail</label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                   placeholder="email@example.com" value="{{ email }}">
+                        </div>
+                       <div class="form-group"><label>Статус</label>
+                            <div>
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary active"
+                                           onclick="document.getElementById('status').value = 'teacher'">
+                                        <input type="radio" name="teacher" id="teacher"
+                                               autocomplete="on">Учитель</label>
+                                    <label class="btn btn-secondary"
+                                           onclick="document.getElementById('status').value = 'pupil'">
+                                        <input type="radio" name="pupil" id="pupil"
+                                               autocomplete="off">Ученик</label>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="status" id="status" value="teacher">
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary m-4">Зарегистрироваться</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-5" style="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <h5 class="">Зарегестрированы?</h5>
+                </div>
+                <div class="col-md-6 text-center ">
+                    <a class="btn btn-outline-secondary" href="../login/">Авторизация</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

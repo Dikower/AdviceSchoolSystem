@@ -1,0 +1,91 @@
+<html>
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    {% block head %}
+    <title>Выбор тестового пользователя | Advice School System</title>
+    {% endblock %}
+</head>
+
+{% block content %}
+<div class="py-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-md-12 py-5">
+                <h1>Выберите тестового пользователя</h1>
+            </div>
+        </div>
+        <div class="row py-3">
+
+            <div class="col-lg-4 col-md-6 p-3">
+                <div class="card bg-light">
+                    <div class="card-body p-4">
+                        <h3>Исаков Прохор</h3>
+                        <form action="../set_person/" method="POST">
+                            <input type="hidden" name="user_id" value="329092">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary mt-3">Выбрать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-3">
+                <div class="card bg-light">
+                    <input type="hidden" name="user_id" value="">
+                    <div class="card-body p-4">
+                        <h3>Плаксин Радислав</h3>
+                        <form action="../set_person/" method="POST">
+                            <input type="hidden" name="user_id" value="328957">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary mt-3">Выбрать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 p-3">
+                <div class="card bg-light">
+                    <input type="hidden" name="user_id" value="">
+                    <div class="card-body p-4">
+                        <h3>Шашкова Пелагея</h3>
+                        <form action="../set_person/" method="POST">
+                            <input type="hidden" name="user_id" value="4400530">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary mt-3">Выбрать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 p-3 mx-auto">
+                <div class="card bg-light">
+                    <input type="hidden" name="user_id" value="">
+                    <div class="card-body p-4">
+                        <h3>Шустелёв Ерофей</h3>
+                        <form action="../set_person/" method="POST">
+                            <input type="hidden" name="user_id" value="370428">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary mt-3">Выбрать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 p-3 mx-auto">
+                <div class="card bg-light">
+                    <input type="hidden" name="user_id" value="">
+                    <div class="card-body p-4">
+                        <h3>Куцака Евдокия</h3>
+                        <form action="../set_person/" method="POST">
+                            <input type="hidden" name="user_id" value="11531620">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary mt-3">Выбрать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

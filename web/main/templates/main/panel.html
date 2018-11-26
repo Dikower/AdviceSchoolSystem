@@ -1,0 +1,144 @@
+<html>
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+    {% block head %}
+    <title>Информационная панель | Advice School System</title>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    {% endblock %}
+</head>
+
+{% block content %}
+<div class="py-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-lg-6">
+                <h1>Информационная панель</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-lg-12">
+                <div class="bg-white p-2 mx-auto col-md-12 col-12" style="border-radius: 36px; border: 0.5px solid #999;">
+                    <div id="bar"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-lg-12">
+                <div class="bg-white p-2 mx-auto col-md-12 col-12" style="border-radius: 36px; border: 0.5px solid #999;">
+                    <div id="pie"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var marks = {{ marks|safe }};
+    var subjects = {{ subjects|safe}};
+
+    Highcharts.chart('bar', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Распределение оценок по предметам'
+        },
+        xAxis: {
+            categories: marks['categories'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Оценки (кол-во)',
+                align: 'middle'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' кол-во оценок'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -10,
+            y: 50,
+            floating: true,
+            borderWidth: 2,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: marks['series']
+    });
+
+
+    // Build the chart
+    Highcharts.chart('pie', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Просматриваемость учебных предметов'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Предметы',
+            colorByPoint: true,
+            data: subjects
+        }]
+    });
+</script>
+
+{% endblock %}
